@@ -1,8 +1,20 @@
 const Marionette = require("backbone.marionette"),
-	  _ = require("underscore");
+	  _ = require("underscore"),
+	  DropDownList = require("./component/dropdown.js");
 
 const RootView = Marionette.View.extend({
-	template: _.template("<h5>Materials Grid Goes Here At Some Point</h5>"),
+	template: _.template("<div id='content-region'></div>"),
+	regions: { content: "#content-region" },
+	onRender: function () {
+		const dropDownList = new DropDownList({
+			kendoDropDownList: {
+				dataSource: {
+					data: ["One", "Two", "Three"]
+				}
+			}
+		});
+		this.showChildView("content", dropDownList);
+	}
 });
 
 const App = Marionette.Application.extend({

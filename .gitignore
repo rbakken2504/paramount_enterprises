@@ -1,4 +1,5 @@
 node_modules/
+bundle.js
 .npm
 .eslintcache
 .node_repl_history
