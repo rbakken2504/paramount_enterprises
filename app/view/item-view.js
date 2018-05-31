@@ -3,6 +3,7 @@ const Marionette = require("backbone.marionette"),
 	  DropDownList = require("../component/dropdown/dropdown.js"),
 	  NumericTextBox = require("../component/numerictextbox/numeric-text-box.js"),
 	  AddButtonView = require("./add-button-view.js"),
+	  MaterialDropDownFactory = require("../factory/material-dropdown-factory.js"),
 	  viewTemplate = require("../template/item-view.html");
 
 const ItemView = Marionette.View.extend({
@@ -19,16 +20,7 @@ const ItemView = Marionette.View.extend({
 		this.showChildView("numeric", new NumericTextBox({
 			kendoNumericTextBox: {format: "n0"}
 		}));
-		this.showChildView("material", new DropDownList({
-			kendoDropDownList: {
-				dataSource: {
-					data: [
-						"Hardie", 
-						"Vinyl"
-					]
-				}
-			}
-		}));
+		this.showChildView("material", MaterialDropDownFactory.create(this.model.get("type")));
 		this.showChildView("color", new DropDownList({
 			kendoDropDownList: {
 				dataSource: {

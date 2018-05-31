@@ -10,9 +10,9 @@ const TableBody = Marionette.CollectionView.extend({
 });
 
 let dummyCollection = new Backbone.Collection([
-		{id: 1, type: "itemOne"},
-		{id: 2, type: "itemTwo"},
-		{id: 3, type: "itemThree"}
+		{id: 1, type: "SIDING"},
+		{id: 2, type: "POLE"},
+		{id: 3, type: "TRIM_LENGTH"}
 	]);
 
 const TableView = Marionette.View.extend({
