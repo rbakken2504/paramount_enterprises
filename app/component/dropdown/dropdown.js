@@ -12,8 +12,21 @@ const DropDownList = Marionette.View.extend({
 		this.options = options;
 		this._ensureRequiredOptions();
 	},
-	onAttach: function () {
+	onDomRefresh: function () {
 		this.$el.kendoDropDownList(this.options.kendoDropDownList);
+	},
+	onBeforeDestroy: function () {
+		const kendoDropDownList = this.getKendoComponent();
+		if (kendoDropDownList) {
+			const wrapper = kendoDropDownList.wrapper;
+
+			kendoDropDownList.destroy();
+			wrapper.empty();
+			wrapper.remove();
+		}
+	},
+	getKendoComponent: function () {
+		return this.$el.getKendoDropDownList();
 	},
 	_ensureRequiredOptions: function () {
 		if (!this.options.kendoDropDownList) {
