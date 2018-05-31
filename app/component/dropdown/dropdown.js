@@ -12,7 +12,7 @@ const DropDownList = Marionette.View.extend({
 		this.options = options;
 		this._ensureRequiredOptions();
 	},
-	onAttach: function () {
+	onDomRefresh: function () {
 		this.$el.kendoDropDownList(this.options.kendoDropDownList);
 	},
 	onBeforeDestroy: function () {
