@@ -1,24 +1,7 @@
-const DropDownList = require("../component/dropdown/dropdown.js");
-
-const MaterialDropDown = DropDownList.extend({
-	name: "MaterialDropDown",
-	initialize: function (options) {
-		const materialOptions = {
-			kendoDropDownList: {
-				dataSource: {
-					data: options.data
-				},
-				dataValueField: "id",
-				dataTextField: "text"
-			}
-		};
-
-		MaterialDropDown.__super__.initialize.call(this, materialOptions);
-	}
-});
+const CommonDropDown = require("../component/dropdown/common-dropdown.js");
 
 const createHardieVinylDropDown = function() {
-	return new MaterialDropDown({
+	return new CommonDropDown({
 		data: [ 
 			{id: "HARDIE", text: "Hardie"},
 			{id: "VINYL", text: "Vinyl"}
@@ -32,7 +15,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		return createHardieVinylDropDown();
 	},
 	DRIP_CAP_TRIM: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: "METAL", text: "Metal"},
 				{id: "VINYL", text: "Vinyl"}
@@ -40,7 +23,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		});
 	},
 	FASCIA: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: "VENTED", text: "Vented"},
 				{id: "NON_VENTED", text: "Non-Vented"}
@@ -48,7 +31,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		});
 	},
 	J_TRIM: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: "REGULAR", text: "Regular"},
 				{id: "EXTRA_WIDE", text: "Extra Wide"},
@@ -58,7 +41,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		});
 	},
 	POLE: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: "SMALL", text: "Small Pole"},
 				{id: "SMALL_DETAIL", text: "Small Detailed Pole"},
@@ -71,7 +54,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		return createHardieVinylDropDown();
 	},
 	SOFFIT: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: 6, text: "6\""},
 				{id: 8, text: "8\""}
@@ -79,7 +62,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		});
 	},
 	SPECIALTY_SIDING: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: "BOARD_BATTEN", text: "Board and Batten"},
 				{id: "PANEL", text: "Panel"},
@@ -88,7 +71,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		});
 	},
 	SPECIALTY_TRIM: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: "CORBEILS", text: "Corbeils"},
 				{id: "GINGER", text: "Gingerbreading"}
@@ -96,7 +79,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		});
 	},
 	TRIM_LENGTH: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: 2, text: "2'"},
 				{id: 4, text: "4'"},
