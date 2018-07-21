@@ -10,16 +10,16 @@ const TableBody = Marionette.CollectionView.extend({
 });
 
 let dummyCollection = new Backbone.Collection([
-		{id: 1, type: "SIDING"},
-		{id: 2, type: "SPECIALTY_SIDING"},
-		{id: 3, type: "TRIM_LENGTH"},
-		{id: 4, type: "CORNER_TRIM"},
-		{id: 5, type: "DRIP_CAP_TRIM"},
-		{id: 6, type: "J_TRIM"},
-		{id: 7, type: "POLE"},
-		{id: 8, type: "SOFFIT"},
-		{id: 9, type: "FASCIA"},
-		{id: 10, type: "SPECIALTY_TRIM"}
+		{id: 1, type: "SIDING", label: "Siding"},
+		{id: 2, type: "SPECIALTY_SIDING", label: "Specialty Siding"},
+		{id: 3, type: "TRIM_LENGTH", label: "Trim Length"},
+		{id: 4, type: "CORNER_TRIM", label: "Corner Trim"},
+		{id: 5, type: "DRIP_CAP_TRIM", label: "Drip Cap Trim"},
+		{id: 6, type: "J_TRIM", label: "J Trim"},
+		{id: 7, type: "POLE", label: "Pole"},
+		{id: 8, type: "SOFFIT", label: "Soffit"},
+		{id: 9, type: "FASCIA", label: "Fascia"},
+		{id: 10, type: "SPECIALTY_TRIM", label: "Specialty Siding"}
 	]);
 
 const TableView = Marionette.View.extend({
