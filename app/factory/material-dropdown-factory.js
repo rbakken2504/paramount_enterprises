@@ -17,12 +17,43 @@ const MaterialDropDown = DropDownList.extend({
 	}
 });
 
+const createHardieVinylDropDown = function() {
+	return new MaterialDropDown({
+		data: [ 
+			{id: "HARDIE", text: "Hardie"},
+			{id: "VINYL", text: "Vinyl"}
+		]
+	});
+}
+
+
 const MATERIAL_DROPDOWN_FACTORY = {
-	SIDING: function () {
+	CORNER_TRIM: function () {
+		return createHardieVinylDropDown();
+	},
+	DRIP_CAP_TRIM: function () {
 		return new MaterialDropDown({
-			data: [ 
-				{id: "HARDIE", text: "Hardie"},
+			data: [
+				{id: "METAL", text: "Metal"},
 				{id: "VINYL", text: "Vinyl"}
+			]
+		});
+	},
+	FASCIA: function () {
+		return new MaterialDropDown({
+			data: [
+				{id: "VENTED", text: "Vented"},
+				{id: "NON_VENTED", text: "Non-Vented"}
+			]
+		});
+	},
+	J_TRIM: function () {
+		return new MaterialDropDown({
+			data: [
+				{id: "REGULAR", text: "Regular"},
+				{id: "EXTRA_WIDE", text: "Extra Wide"},
+				{id: "SHAKE", text: "Shake"},
+				{id: "FINISH", text: "Finish"}
 			]
 		});
 	},
@@ -33,6 +64,34 @@ const MATERIAL_DROPDOWN_FACTORY = {
 				{id: "SMALL_DETAIL", text: "Small Detailed Pole"},
 				{id: "LARGE", text: "Large Pole"},
 				{id: "LARGE_DECORATIVE", text: "Large Decorated Pole"}
+			]
+		});
+	},
+	SIDING: function () {
+		return createHardieVinylDropDown();
+	},
+	SOFFIT: function () {
+		return new MaterialDropDown({
+			data: [
+				{id: 6, text: "6\""},
+				{id: 8, text: "8\""}
+			]
+		});
+	},
+	SPECIALTY_SIDING: function () {
+		return new MaterialDropDown({
+			data: [
+				{id: "BOARD_BATTEN", text: "Board and Batten"},
+				{id: "PANEL", text: "Panel"},
+				{id: "SHAKE", text: "Shakes"}
+			]
+		});
+	},
+	SPECIALTY_TRIM: function () {
+		return new MaterialDropDown({
+			data: [
+				{id: "CORBEILS", text: "Corbeils"},
+				{id: "GINGER", text: "Gingerbreading"}
 			]
 		});
 	},
