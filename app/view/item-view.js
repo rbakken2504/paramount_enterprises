@@ -16,6 +16,9 @@ const ItemView = Marionette.View.extend({
 		color: "[name=select-color-region]",
 		add: "[name=add-region]"
 	},
+	childViewEvents: {
+		"material:drop:down:change": "onMaterialChange"
+	},
 	onDomRefresh: function () {
 		this.showChildView("numeric", new NumericTextBox({
 			kendoNumericTextBox: {format: "n0"}
@@ -34,6 +37,9 @@ const ItemView = Marionette.View.extend({
 			}
 		}));
 		this.showChildView("add", new AddButtonView());
+	},
+	onMaterialChange: function (material) {
+		console.log(material);
 	}
 });
 
