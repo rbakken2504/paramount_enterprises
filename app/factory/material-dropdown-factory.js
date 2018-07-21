@@ -29,7 +29,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		});
 	},
 	FASCIA: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: "VENTED", text: "Vented"},
 				{id: "NON_VENTED", text: "Non-Vented"}
@@ -60,7 +60,7 @@ const MATERIAL_DROPDOWN_FACTORY = {
 		return createHardieVinylDropDown();
 	},
 	SOFFIT: function () {
-		return new MaterialDropDown({
+		return new CommonDropDown({
 			data: [
 				{id: 6, text: "6\""},
 				{id: 8, text: "8\""}

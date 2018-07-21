@@ -4,6 +4,7 @@ const Marionette = require("backbone.marionette"),
 	  NumericTextBox = require("../component/numerictextbox/numeric-text-box.js"),
 	  AddButtonView = require("./add-button-view.js"),
 	  MaterialDropDownFactory = require("../factory/material-dropdown-factory.js"),
+	  ColorDropDownFactory = require("../factory/color-component-factory.js"),
 	  viewTemplate = require("../template/item-view.html");
 
 const ItemView = Marionette.View.extend({
@@ -24,22 +25,18 @@ const ItemView = Marionette.View.extend({
 			kendoNumericTextBox: {format: "n0"}
 		}));
 		this.showChildView("material", MaterialDropDownFactory.create(this.model.get("type")));
-		this.showChildView("color", new DropDownList({
-			kendoDropDownList: {
-				dataSource: {
-					data: [
-						"Red",
-						"Green",
-						"Yellow",
-						"Blue"
-					]
-				}
-			}
-		}));
 		this.showChildView("add", new AddButtonView());
+		if (this.model.get("type") === "SOFFIT" || this.model.get("type") === "FASCIA") {
+			this.showChildView("color", ColorDropDownFactory.create(this.model.get("type")));
+		}
 	},
 	onMaterialChange: function (material) {
-		console.log(material);
+		const colorDropDown = ColorDropDownFactory.create(material);
+		if (colorDropDown) {
+			this.showChildView("color", colorDropDown);
+		} else {
+			this.detachChildView("color");
+		}
 	}
 });
 
