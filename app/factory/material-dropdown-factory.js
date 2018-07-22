@@ -1,5 +1,4 @@
 const CommonDropDown = require("../component/dropdown/common-dropdown.js"),
-      LabelView = require("../view/label-view.js"),
 	  MaterialDropDown = CommonDropDown.extend({
 	  	  name: "MaterialDropDown",
 	  	  onChange: function () {
