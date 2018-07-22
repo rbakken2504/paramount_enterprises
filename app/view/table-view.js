@@ -6,7 +6,15 @@ const Backbone = require("backbone"),
 
 const TableBody = Marionette.CollectionView.extend({
 	tagName: "tbody",
-	childView: ItemView
+	childView: ItemView,
+	childViewEvents: {
+		"add:item": "onAddItem"
+	},
+	onAddItem: function (item) {
+		var insertIdx = this.collection.findIndex(item) + 1;
+		item.id = this.collection.length + 1;
+		this.collection.add(item, {at: insertIdx});
+	}
 });
 
 let dummyCollection = new Backbone.Collection([

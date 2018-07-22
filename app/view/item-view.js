@@ -18,7 +18,8 @@ const ItemView = Marionette.View.extend({
 		add: "[name=add-region]"
 	},
 	childViewEvents: {
-		"material:drop:down:change": "onMaterialChange"
+		"material:drop:down:change": "onMaterialChange",
+		"add:item:click": "onAddItemClick"
 	},
 	onDomRefresh: function () {
 		this.showChildView("numeric", new NumericTextBox({
@@ -35,6 +36,9 @@ const ItemView = Marionette.View.extend({
 		} else {
 			this.detachChildView("color");
 		}
+	},
+	onAddItemClick: function () {
+		this.trigger("add:item", this.model.toJSON());
 	},
 	_showMaterialDropDown: function () {
 		const materialDropDown = MaterialDropDownFactory.create(this.model.get("type"));

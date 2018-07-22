@@ -6,11 +6,8 @@ const AddButtonView = Marionette.View.extend({
 	className: "btn btn-success",
 	name: "ButtonView",
 	template: _.template("Add Material"),
-	events: {
-		"click": "onButtonClick"
-	},
-	onButtonClick: function () {
-		console.log("Button Clicked!");
+	triggers: {
+		"click": "add:item:click"
 	}
 });
 
