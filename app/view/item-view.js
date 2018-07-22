@@ -25,7 +25,7 @@ const ItemView = Marionette.View.extend({
 			kendoNumericTextBox: {format: "n0"}
 		}));
 		this.onMaterialChange(this.model.get("type"));
-		this.showChildView("material", MaterialDropDownFactory.create(this.model.get("type")));
+		this._showMaterialDropDown();
 		this.showChildView("add", new AddButtonView());
 	},
 	onMaterialChange: function (material) {
@@ -34,6 +34,12 @@ const ItemView = Marionette.View.extend({
 			this.showChildView("color", colorDropDown);
 		} else {
 			this.detachChildView("color");
+		}
+	},
+	_showMaterialDropDown: function () {
+		const materialDropDown = MaterialDropDownFactory.create(this.model.get("type"));
+		if (materialDropDown) {
+			this.showChildView("material", materialDropDown);
 		}
 	}
 });

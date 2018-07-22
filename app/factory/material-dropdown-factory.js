@@ -1,4 +1,5 @@
 const CommonDropDown = require("../component/dropdown/common-dropdown.js"),
+      LabelView = require("../view/label-view.js"),
 	  MaterialDropDown = CommonDropDown.extend({
 	  	  name: "MaterialDropDown",
 	  	  onChange: function () {
@@ -14,7 +15,6 @@ const createHardieVinylDropDown = function() {
 		]
 	});
 }
-
 
 const MATERIAL_DROPDOWN_FACTORY = {
 	CORNER_TRIM: function () {
@@ -104,11 +104,8 @@ module.exports = {
 			throw new Error("[type] is required");
 		}
 
-		const createDropDownFn = MATERIAL_DROPDOWN_FACTORY[type];
-		if (!createDropDownFn) {
-			throw new Error("${type} is not defined within the factory.");
+		if (MATERIAL_DROPDOWN_FACTORY[type]) {
+			return MATERIAL_DROPDOWN_FACTORY[type]();
 		}
-
-		return createDropDownFn();
 	}
 }
