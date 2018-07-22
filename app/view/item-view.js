@@ -24,11 +24,9 @@ const ItemView = Marionette.View.extend({
 		this.showChildView("numeric", new NumericTextBox({
 			kendoNumericTextBox: {format: "n0"}
 		}));
+		this.onMaterialChange(this.model.get("type"));
 		this.showChildView("material", MaterialDropDownFactory.create(this.model.get("type")));
 		this.showChildView("add", new AddButtonView());
-		if (this.model.get("type") === "SOFFIT" || this.model.get("type") === "FASCIA") {
-			this.showChildView("color", ColorDropDownFactory.create(this.model.get("type")));
-		}
 	},
 	onMaterialChange: function (material) {
 		const colorDropDown = ColorDropDownFactory.create(material);
